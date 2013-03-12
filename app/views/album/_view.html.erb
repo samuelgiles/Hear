@@ -1,0 +1,20 @@
+<% cache album do %>
+<li class="album clearfix" id="album_<%= album.id %>">
+	<p class="position"><%= index+1 %></p>
+	<div class="remove">REMOVE</div>
+	<img src="<%= album.get_art %>"/>
+	<h4 class="album-title"><%= album.artist %> - <small><%= album.title %></small></h4>
+	<%
+	@listened_to = ""
+	if current_user
+		album.user_id = current_user.id
+		if album.listened_to == true
+			@listened_to = "listened_true"
+		else
+			@listened_to = "listened_false"
+		end
+	end
+	%>
+	<a href="#" class="album-listen btn btn-green <%=@listened_to%>"><i class="icon-headphones"></i></a>
+</li>	
+<% end %>

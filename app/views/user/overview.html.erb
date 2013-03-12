@@ -1,0 +1,53 @@
+
+<div class="row">
+
+<div class="col1">
+<%
+@nametoshow = @user.username + "'s"
+if current_user
+	if @user.username == current_user.username
+		@nametoshow = "Your "
+	end 
+end
+%>
+<h2><%= @nametoshow %> Albums</h2>
+
+<% 
+if current_user 
+	if @user.username == current_user.username
+%>
+<div class="dark">
+	<h3>Add Album</h3>
+	<%= render "album/form" %>
+</div>
+<% 
+	end
+end 
+%>
+
+</div>
+
+<div class="col3">
+<% if @user.albums.count > 0 %>
+	
+	<%
+	@owned = ""
+	if current_user
+		@owned = @user.username == current_user.username ? " owned" :  "" 
+	end
+	%>
+	<ol class="albums<%= @owned %> added any albums.">
+	<% @user.albums.order("sortorder DESC").each_with_index do |album, index| %>
+		<%= render "album/view", :album => album, :index => index %>
+	<% end %>
+	</ol>
+	
+<% else %>
+<h3><%= @user.username == current_user.username ? "You haven't " : @user.username + " hasn't " %> added any albums.</h3>
+<% end %>
+
+
+</div>
+
+</div>
+

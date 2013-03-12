@@ -1,0 +1,334 @@
+//style.less
+@import "normalize.css.less";
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.box-sizing{
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	*behavior: url(/scripts/boxsizing.htc);
+}
+* { .box-sizing; }
+.transition (@prop: all, @time: 1s, @ease: linear) {
+	-webkit-transition: @prop @time @ease;
+	-moz-transition: @prop @time @ease;
+	-o-transition: @prop @time @ease;
+	-ms-transition: @prop @time @ease;
+	transition: @prop @time @ease;
+}
+.border-radius (@prop: 0px) {
+	-webkit-border-radius: @prop;
+	-moz-border-radius: @prop;
+	-o-border-radius: @prop;
+	-ms-border-radius: @prop;
+	border-radius: @prop;
+}
+.transform (@prop){
+	-webkit-transform: @prop;
+	-moz-transform: @prop;
+	-o-transform: @prop;
+	-ms-transform: @prop;
+	transform: @prop;
+}
+.box-shadow (@prop){
+	-webkit-box-shadow: @prop;
+	-moz-box-shadow: @prop;
+	-o-box-shadow: @prop;
+	-ms-box-shadow: @prop;
+	box-shadow: @prop;
+}
+.gradient(@colora, @colorb){
+	background: mix(@colora, @colorb, 50%);
+	background: -moz-linear-gradient(-45deg,  @colora 0%, @colorb 100%) no-repeat center center fixed; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,@colora), color-stop(100%,@colorb)) no-repeat center center fixed; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  @colora 0%,@colorb 100%) no-repeat center center fixed; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  @colora 0%,@colorb 100%) no-repeat center center fixed; /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  @colora 0%,@colorb 100%) no-repeat center center fixed; /* IE10+ */
+	background: linear-gradient(135deg,  @colora 0%,@colorb 100%) no-repeat center center fixed; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@colora', endColorstr='@colorb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+@font-face {
+	font-family: 'icomoon';
+	src:font-url('icomoon.eot');
+	src:font-url('icomoon.eot?#iefix') format('embedded-opentype'),
+		font-url('icomoon.woff') format('woff'),
+		font-url('icomoon.ttf') format('truetype'),
+		font-url('icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-headphones:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-headphones:before {
+	content: "\e000";
+}
+
+.container{
+	width:960px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ulreset{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	li{
+		padding:0px;
+		margin:0px;
+	}
+}
+.row{
+	.box-sizing;
+	margin-top: 1.3333%;
+	width:100%;
+	.col1,.col2,.col3,.col4, .col1-3, .col25, .col15{
+		float:left;
+		.box-sizing;
+		padding-right: 2%;
+	}
+	.col1:last-child,.col2:last-child,.col3:last-child,.col4:last-child, .col1-3:last-child, .col15:last-child,.col25:last-child{
+		padding-right:0%;
+	}
+	.col1{
+		width:25%;
+	}
+	.push1{
+		margin-left: 24%;
+	}
+	.col2{
+		width:50%;
+	}
+	.push2{
+		margin-left: 46.6666% + 1.3333%;
+	}
+	.col3{
+		width: 75%;
+	}
+	.col25{
+		width:60%;
+	}
+	.col15{
+		width:40%;
+	}
+	.col4{
+		width:100%;
+	}
+	.col1-3{
+		width: 33.333%;
+	}
+	.col1.header-col,.col2.header-col,.col3.header-col,.col4.header-col, .col1-3.header-col{
+		display:table-header-group;
+	}
+}
+
+@background-color: #E6F6E4;
+@green-color: #80D071;
+@body-color: #292929;
+@base-size: 16px;
+
+.bodyfonts{ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; }
+.headerfonts{ font-family: "open-sans", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+body{
+	.bodyfonts;
+	font-size: @base-size;
+	background-color: @background-color;
+	color: @body-color;
+	-webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5,h6{
+	.headerfonts;
+	font-weight: 200;
+}
+.backstretch{
+	opacity:0.2;
+}
+#page-wrap{
+	z-index:1;
+	position:relative;
+}
+.btn{
+	border: 1px solid rgba(255,255,255,0.4);
+	.box-shadow(~"0px 2px 10px rgba(36,36,36,0.3)");
+	text-decoration: none;
+	.headerfonts;
+	text-align:center;
+	padding: 5px;
+}
+.btn-block{
+	display:block;
+	width:100%;
+}
+.btn:hover{
+	text-decoration:none;
+}
+.btn-green{
+	background-color: @green-color;
+	color: @body-color;
+	font-size: 1.2em;
+}
+.btn-green:hover{
+	.gradient(lighten(@green-color,10%), lighten(@green-color,30%));
+}
+.full-image{
+	width:100%;
+	height:auto;
+}
+header{
+	h1{
+		font-size: 3em;
+		background-color: @green-color;
+		display:inline-block;
+		padding-right: 50px;
+		color: @body-color;
+	}
+}
+.user-navigation{
+	text-align:right;
+}
+.green{
+	background-color: @green-color;
+	padding: 1%;
+}
+.dark{
+	background-color: @body-color;
+	color: #fff;
+	padding: 2%;
+}
+.notice{
+	.dark;
+	width: 30%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	font-size: 1.5em;
+	margin-top: 20px;
+}
+ol{
+	.ulreset;
+}
+.albums{
+	width:100%;
+}
+.album{
+	position:relative;
+	margin-bottom: 10px;
+	.position{
+		font-size: 2em;
+		background-color: @green-color;
+		position:absolute;
+		left:0px;
+		padding: 10px;
+		margin: 10px;
+		top:0px;
+	}
+	.remove{
+		font-size: 1em;
+		background-color: @green-color;
+		position:absolute;
+		right:50%;
+		padding: 10px;
+		margin: 10px;
+		cursor:pointer;
+		top:0px;
+		display:none;
+	}
+	.album-listen{
+		float:left;
+		margin-left: 2%;
+		font-size: 70px;
+		padding: 10px;
+		opacity:0.5;
+	}
+	.album-listen.listened_true{
+		opacity:1.0;
+	}
+	img{
+		height:auto;
+		width:50%;
+		float:left;
+	}
+	.album-title, .album-artist,img{
+		float:left;
+	}
+	.album-title, .album-artist{
+		background-color: @body-color;
+		padding: 5px;
+		margin-left: 2%;
+		width:48%;	
+		display:inline-block;
+		color: @background-color;
+	}	
+}
+.albums.owned{
+	.album:hover{
+		.remove{
+			display:block;
+		}
+	}	
+}
+
+input[type="text"],input[type="password"],textarea{
+	background-color: #fff;
+	border:0px;
+	outline:0px;
+	max-width:100%;
+}
+textarea{
+	max-height: 100px;
+	resize:none;
+}
+
+@media only screen and (max-width: 960px) {
+	.container{
+		width:90%;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.container{
+		width:95%;
+	}
+	.row{
+		.col1,.col2,.col3,.col4, .col1-3, .col15,.col25{
+			width:100%;
+			float:none;
+			margin-bottom: 10px;
+		}
+	}
+	.user-navigation{
+		text-align:left;
+	}
+	
+}
+
