@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem "sucker"
-gem 'amazon-album-art', '>= 1.0.3', :git => 'https://github.com/samuelgiles/PatchedAmazonAlbumArt.git', :branch => "Master"
+gem 'amazon-album-art', '>= 0.4', :git => 'https://github.com/samuelgiles/PatchedAmazonAlbumArt.git', :branch => "Master"
 
 gem 'paperclip'
 

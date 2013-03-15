@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/samuelgiles/PatchedAmazonAlbumArt.git
+  revision: a6801e8e4a7670672e22a630eafda9be54b2e57f
+  branch: Master
+  specs:
+    amazon-album-art (0.4)
+      nokogiri (>= 1.4.4)
+      sucker (>= 1.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,9 +37,6 @@ GEM
     activesupport (3.2.12)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    amazon-art (0.0.5)
-      nokogiri (~> 1.4.4)
-      vacuum (~> 0.3.1)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -38,13 +44,11 @@ GEM
     cocaine (0.4.2)
     commonjs (0.2.6)
     erubis (2.7.0)
-    excon (0.18.5)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
+    httpclient (2.3.3)
     i18n (0.6.2)
-    jeff (0.6.0)
-      excon (~> 0.18.0)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -62,7 +66,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
-    nokogiri (1.4.7)
+    nokogiri (1.5.6)
     paperclip (3.4.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -109,6 +113,9 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    sucker (2.1.0)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.4)
     therubyracer (0.11.3)
       libv8 (~> 3.11.8.12)
       ref
@@ -121,14 +128,12 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    vacuum (0.3.1)
-      jeff (~> 0.6.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  amazon-art (>= 0.0.5)
+  amazon-album-art (>= 0.4)!
   bcrypt-ruby (~> 3.0.0)
   jquery-rails
   less-rails
@@ -137,6 +142,6 @@ DEPENDENCIES
   rails (= 3.2.12)
   rails-erd
   sqlite3 (~> 1.3.0)
+  sucker
   therubyracer
   uglifier (>= 1.0.3)
-  vacuum
