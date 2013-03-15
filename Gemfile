@@ -31,7 +31,8 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem "amazon-album-art", "~> 0.3.4"
+gem "sucker"
+gem 'amazon-album-art', '>= 1.0.3', :git => 'https://github.com/samuelgiles/PatchedAmazonAlbumArt.git'
 
 gem 'paperclip'
 
