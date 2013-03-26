@@ -13,8 +13,15 @@
 		else
 			@listened_to = "listened_false"
 		end
+		%>
+		<a href="#" class="album-listen btn btn-green <%=@listened_to%>"><i class="icon-headphones"></i></a>
+		<%
+	else
+	%>
+		<a href="<%=url_for(session_login_path)%>" class="btn btn-green">Login to mark this album as 'listened'</a>
+	<%
 	end
 	%>
-	<a href="#" class="album-listen btn btn-green <%=@listened_to%>"><i class="icon-headphones"></i></a>
+	
 </li>	
 <% end %>
