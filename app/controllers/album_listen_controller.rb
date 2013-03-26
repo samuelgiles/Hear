@@ -10,6 +10,8 @@ class AlbumListenController < ApplicationController
 
   		@Listen = current_user.AlbumListens.new(:album_id => params[:id])
 
+      Album.find(params[:id]).touch
+
   		if @Listen.save
   		@responsejson[:success] = "true"
   		end
@@ -30,7 +32,7 @@ class AlbumListenController < ApplicationController
     }
 
     @Unlisten = current_user.AlbumListens.where(:album_id => params[:id]).destroy_all
-
+    Album.find(params[:id]).touch
     render :json => @responsejson
     
   end
